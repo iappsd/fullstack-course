@@ -1,0 +1,16 @@
+<div ng-if="info.isOK()" class="container">
+  <label>Registered Information:</label>
+  <div>First Name: {{ ::info.user.firstName }}</div>
+  <div>Last Name: {{ ::info.user.lastName }}</div>
+  <div>Email: {{ ::info.user.email }}</div>
+  <div>Phone: {{ ::info.user.phone }}</div>
+  <div>Your Preferred Menu:</div>
+  <menu-category category="info.$resolve.category">
+  </menu-category>
+  <div>
+    {{ ::info.category.special_instructions }}
+  </div>
+</div>
+<div ng-if="!info.isOK()">
+  <label>Not Signed Up Yet. <a ui-sref="public.news">Sign up Now!</a></label>
+</div>

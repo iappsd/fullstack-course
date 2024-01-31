@@ -1,0 +1,68 @@
+<form name='newsForm' class="container" ng-init="news.checkMenuItem();" novalidate>
+  <div class="row">
+    <label>Sign Up For The Restaurant News Letter</label>
+  </div>
+  <div class="row mt-15">
+    <span>Your account details:</span>
+  </div>
+  <div class="row">
+    <input type="text" name="firstname" placeholder="First Name"
+      ng-model="news.user.firstName"
+      class="col-md-3 col-sm-6 col-xs-6 col-xxs-12"
+      required
+      ng-maxlength="30">
+    <input type="text" name="lastname" placeholder="Last Name"
+      ng-model="news.user.lastName"
+      class="col-md-3 col-sm-6 col-xs-6 col-xxs-12"
+      required
+      ng-maxlength="30">
+    <input type="email" name="email" placeholder="Email"
+      ng-model="news.user.email"
+      class="col-md-3 col-sm-6 col-xs-6 col-xxs-12"
+      required>
+    <input type="text" name="phone" placeholder="Phone"
+      ng-model="news.user.phone"
+      class="col-md-3 col-sm-6 col-xs-6 col-xxs-12"
+      required
+      pattern="\+?(\d[\s\d-]*)?\d">
+  </div>
+  <div class="row" ng-show="newsForm.firstname.$touched && newsForm.firstname.$invalid">
+    <label>Please, enter your first name (max 30 characters).</label>
+  </div>
+  <div class="row" ng-show="newsForm.lastname.$touched && newsForm.lastname.$invalid">
+    <label>Please, enter your last name (max 30 characters).</label>
+  </div>
+  <div class="row" ng-show="newsForm.email.$touched && newsForm.email.$invalid">
+    <label>Please, enter a valid email address.</label>
+  </div>
+  <div class="row" ng-show="newsForm.phone.$touched && newsForm.phone.$invalid">
+    <label>Please, enter a valid phone number.</label>
+  </div>
+  <div class="row mt-15">
+    <span>Your Preferred Menu:</span>
+  </div>
+  <div class="row">
+    <input type="text" name="menuitem" placeholder="Menu Letter"
+      ng-model="news.menuItem"
+      ng-keyup="news.checkMenuItem()"
+      class="col-md-3 col-sm-6 col-xs-6 col-xxs-12"
+      required>
+  </div>
+  <div class="row">
+    <label ng-show="newsForm.menuitem.$touched && (newsForm.menuitem.$invalid || !news.menuItemOK)">
+      No such Menu Number exists...
+    </label>
+  </div>
+  <div class="row mt-15">
+    <button
+      class="btn btn-primary btn-lg"
+      ng-disabled="newsForm.$invalid || !news.menuItemOK"
+      ng-click="news.submit();">
+       Submit
+    </button>
+  </div>
+  <div class="row"
+    ng-show="newsForm.$submitted">
+    Your information has been saved.
+  </div>
+</form>

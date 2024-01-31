@@ -1,0 +1,10 @@
+<div style="clear: both;">
+  <ul>
+    <li ng-repeat="item in items">
+      {{item.name}}, {{item.short_name}}, {{item.description}}
+      <button ng-click="onRemove({index: $index});">{{onRemoveMessage}}
+      </button>
+    </li>
+  </ul>
+  <div ng-show="items.length===0" class="warning">Nothing found</div>
+</div>

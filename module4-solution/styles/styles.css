@@ -1,0 +1,15 @@
+h1 {
+  margin-bottom: 30px;
+  font-size: 2em;
+  color: red;
+}
+
+.title {
+  margin-top: 2em;
+}
+li .shortName {
+  font-weight: bolder;
+}
+.shortName:after {
+  content: " ) ";
+}
